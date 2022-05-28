@@ -14,13 +14,6 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User author;
 
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
 
     public Message() {
     }
@@ -29,6 +22,14 @@ public class Message {
         this.author = author;
         this.text = text;
         this.tag = tag;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public String getAuthorName() {
