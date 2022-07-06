@@ -5,7 +5,7 @@
             <div class="col-sm-6">
                 <input type="text" name="username" value="<#if user??>${user.username}</#if>"
                        class="form-control ${(usernameError??)?string('is-invalid', '')}"
-                       placeholder="User name" />
+                       placeholder="User name"/>
                 <#if usernameError??>
                     <div class="invalid-feedback">
                         ${usernameError}
@@ -18,7 +18,7 @@
             <div class="col-sm-6">
                 <input type="password" name="password"
                        class="form-control ${(passwordError??)?string('is-invalid', '')}"
-                       placeholder="Password" />
+                       placeholder="Password"/>
                 <#if passwordError??>
                     <div class="invalid-feedback">
                         ${passwordError}
@@ -53,8 +53,17 @@
                     </#if>
                 </div>
             </div>
+
+            <div class="col-sm-6">
+                <div class="g-recaptcha" data-sitekey="6LeZ4scgAAAAADmuNLy6rHHWRscoKGrRWoHtDpQV"></div>
+                <#if captchaError??>
+                    <div class="alert alert-danger" role="alert">
+                        ${captchaError}
+                    </div>
+                </#if>
+            </div>
         </#if>
-        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <#if !isRegisterForm><a href="/registration">Add new user</a></#if>
         <button class="btn btn-primary" type="submit"><#if isRegisterForm>Create<#else>Sign In</#if></button>
     </form>
@@ -62,7 +71,7 @@
 
 <#macro logout>
     <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button class="btn btn-primary" type="submit">Sign Out</button>
     </form>
 </#macro>
